@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ITAL-SOY Data Classification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["recordId", "schemaVersion", "dataClass", "payloadHash", "status"],
+  "properties": {
+    "recordId": {"type": "string", "minLength": 1},
+    "schemaVersion": {"type": "string", "minLength": 1},
+    "dataClass": {"enum": ["D0_PUBLIC", "D1_OPERATIONAL", "D2_QMS", "D3_COMPLIANCE", "D4_FINANCIAL", "D5_TRADING", "D6_TREASURY", "D7_SECURITY", "D8_SECRETS"]},
+    "payloadHash": {"type": "string", "pattern": "^0x[a-fA-F0-9]{64}$"},
+    "status": {"enum": ["RECEIVED", "VALIDATED", "ATTESTED", "REJECTED", "REVOKED"]}
+  }
+}
